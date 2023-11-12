@@ -57,15 +57,16 @@ function displayOneDog(dog){
         })
 }
 
-//patches not working
 function sendPatch(dog){
+    const isGoodDog = button.textContent === 'Good Dog!'
+    console.log(`${dog.isGoodDog}`)
     fetch(`${url}/${dog.id}`, {
         method: 'PATCH',
         headers:{
             'Content-type': 'application/json'
         },
         body: JSON.stringify({
-            pups: dog.isGoodDog
+            isGoodDog: isGoodDog
         })
     })
     .then(res => res.json())
